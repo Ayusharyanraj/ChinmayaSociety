@@ -1,0 +1,288 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+body {
+  font-family: Poppins;
+  background-color: black;
+  color: #eee;
+  margin: 0;
+  font-size: 12px;
+}
+a {
+  text-decoration: none;
+  color: #eee;
+}
+header {
+  width: 1140px;
+  max-width: 80%;
+  margin: auto;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 100;
+}
+header a {
+  margin-right: 40px;
+}
+.car {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  margin-top: -50px;
+  position: relative;
+}
+.car .list .item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.car .list .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.car .list .item .content {
+  position: absolute;
+  top: 20%;
+  width: 1140px;
+  max-width: 80%;
+  left: 50%;
+  transform: translate(-50%);
+  padding-right: 30%;
+  box-sizing: border-box;
+  color: #fff;
+  text-shadow: 0 5px 10px #0004;
+}
+.car .list .item .content .writter {
+  font-weight: bold;
+  letter-spacing: 10px;
+}
+.car .list .item .content .tittle,
+.car .list .item .content .topic {
+  font-weight: bold;
+  font-size: 5rem;
+  list-style: 1.3rem;
+}
+.car .list .item .content .topic {
+  color: #f1683a;
+}
+.car .list .item .content .button {
+  display: grid;
+  grid-template-columns: repeat(2, 130px);
+  grid-template-rows: 40px;
+  gap: 5px;
+  margin-top: 20px;
+}
+.car .list .item .content button {
+  border: none;
+  background-color: #eee;
+  letter-spacing: 3px;
+  font-family: Poppins;
+  font-weight: 500;
+}
+.car .list .item .content button:nth-child(2) {
+  background-color: transparent;
+  color: #eee;
+  border: 1px solid #eee;
+}
+.tembnail {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  width: max-content;
+  z-index: 100;
+  display: flex;
+  gap: 20px;
+  
+}
+.tembnail .items {
+  width: 150px;
+  height: 220px;
+  flex-shrink: 0;
+  position: relative;
+  
+}
+.tembnail .items img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+.tembnail .items .content {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+}
+.tembnail .items .content .tittle {
+  font-weight: bold;
+}
+.arrow {
+  position: absolute;
+  top: 80%;
+  right: 52%;
+  width: 300px;
+  max-width: 30%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.arrow button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #eee4;
+  border: none;
+  font-family: monospace;
+  color: #fff;
+  font-weight: bold;
+  font-size: large;
+  transition: 0.5s;
+  z-index: 100;
+}
+.arrow button:hover {
+  background-color: #eee;
+  color: #555;
+}
+.car .list .item:nth-child(1) {
+  z-index: 1;
+}
+.car .list .item:nth-child(1) .writter,
+.car .list .item:nth-child(1) .tittle,
+.car .list .item:nth-child(1) .topic,
+.car .list .item:nth-child(1) .description,
+.car .list .item:nth-child(1) .button {
+  transform: translateY(50px);
+  filter: blur(20px);
+  opacity: 0;
+  animation: showContent 0.5s 1s linear 1 forwards;
+}
+@keyframes showContent {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+.car .list .item:nth-child(1) .tittle {
+  animation-delay: 1.3s;
+}
+.car .list .item:nth-child(1) .description {
+  animation-delay: 1.6s;
+}
+.car .list .item:nth-child(1) .button {
+  animation-delay: 1.8s;
+}
+.car .list .item:nth-child(1) img {
+  width: 150px;
+  height: 220px;
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  border-radius: 20px;
+  animation: showImage 0.5s linear 1 forwards;
+}
+@keyframes showImage {
+  to {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    border-radius: 0;
+  }
+}
+.car.next .tembnail .items:nth-child(1) {
+  width: 0;
+  overflow: hidden;
+  animation: showThumbnail 0.5s linear 1 forwards;
+}
+@keyframes showThumbnail {
+  to {
+    width: 150px;
+  }
+}
+.car.next .tembnail {
+  transform: translateX(150px);
+  animation: transformThumbnail 0.5s linear 1 forwards;
+}
+@keyframes transformThumbnail {
+  to {
+    transform: translateX(0);
+  }
+}
+.car.prev .list .items:nth-child(2) {
+  z-index: 2;
+}
+.car.prev .list .item:nth-child(2) img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: outImage 0.5s linear 1 forwards;
+}
+@keyframes outImage {
+  to {
+    width: 150px;
+    height: 220px;
+    border-radius: 20px;
+    left: 50%;
+    bottom: 50px;
+  }
+}
+.car.prev .list .items:nth-child(2) {
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  animation: showThumbnails 0.5s linear 1 forwards;
+}
+.car.prev .list .items:nth-child(2) .writter,
+.car.prev .list .items:nth-child(2) .tittle,
+.car.prev .list .items:nth-child(2) .topic,
+.car.prev
+  .list
+  .items:nth-child(2)
+  .description
+  .car.prev
+  .list
+  .items:nth-child(2).button {
+  animation: contentOut 1.5s linear 1 forwards;
+}
+@keyframes contentOut {
+  to {
+    transform: translateY(-150px);
+    filter: blur(20px);
+    opacity: 0;
+  }
+}
+.car.next .arrow button,
+.car.prev .arrow button {
+  pointer-events: none;
+}
+.time {
+  width: 100%;
+  height: 3px;
+  background-color: #f1683a;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+}
+.car.prev .time,
+.car.next .time {
+  width: 100%;
+  animation: timeRunning 2s linear 1 forwards;
+}
+@keyframes timeRunning {
+    to{
+        width: 0;
+    }
+}
+@media screen and (max-width:678px) {
+    .car .list .item .content{
+        padding-right: 0px;
+    }
+    
+}
+.car .list .item .content .tittle {
+    font-size: 30px;
+}
